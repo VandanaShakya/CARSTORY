@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+    }
+  }
+</script>
+</head>
+<body>
+<script type="module">
+  import * as THREE from 'three';
+  const euler = new THREE.Euler(0, 0, 0, 'YXZ');
+  // let's test some values
+  euler.set(Math.PI/2, Math.PI, Math.PI/2, 'YXZ');
+  const vTop = new THREE.Vector3(0, 1, 0).applyEuler(euler);
+  const vFront = new THREE.Vector3(0, 0, 1).applyEuler(euler);
+  console.log("Top (local +Y) points to:", vTop.x.toFixed(2), vTop.y.toFixed(2), vTop.z.toFixed(2));
+  console.log("Front (local +Z) points to:", vFront.x.toFixed(2), vFront.y.toFixed(2), vFront.z.toFixed(2));
+</script>
+</body>
+</html>
